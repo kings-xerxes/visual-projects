@@ -1,0 +1,106 @@
+form{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    border:1px solid black;
+    margin:30px;
+    background-color: antiquewhite;
+    height:400px;
+    width:300px;
+    padding:10px;
+}
+#form1{
+    height:400px;
+    border-radius: 10px;
+}
+#form2
+{
+    height:500px;
+    border-radius: 10px;;
+}
+#form1, #form2
+{
+    margin-bottom:100px;
+}
+input[type="text"]
+{
+    background-color: whitesmoke;
+    width:200px;
+    height:30px;
+    padding: 5px;
+    color:black;
+    border-radius: 10px;
+    margin: 15px;
+}
+input[type="date"]
+{
+    background-color: whitesmoke;
+    width:200px;
+    height:30px;
+    padding: 5px;
+    color:black;
+    border-radius: 10px;
+    margin: 15px;
+}
+input[type="number"]
+{
+    background-color: whitesmoke;
+    width:200px;
+    height:30px;
+    padding: 5px;
+    color:black;
+    border-radius: 10px;
+    margin: 15px;
+
+}
+#account_number
+{
+    background-color: whitesmoke;
+    width:200px;
+    height:30px;
+    padding: 5px;
+    color:black;
+    border-radius: 10px;
+}
+button
+{
+
+    background-color: whitesmoke;
+    width:200px;
+    height:30px;
+    padding: 5px;
+    color:black;
+    border-radius: 10px;
+    margin: 15px;
+}
+#age
+{
+    background-color: whitesmoke;
+    width:200px;
+    height:30px;
+    padding: 5px;
+    color:black;
+    border-radius: 10px;
+    margin: 15px;
+}
+#emails
+{
+    background-color: whitesmoke;
+    width:200px;
+    height:30px;
+    padding: 5px;
+    color:black;
+    border-radius: 10px;
+    margin: 15px;
+}
+input[type="submit"]
+{
+    background-color: whitesmoke;
+    width:200px;
+    height:30px;
+    padding: 5px;
+    color:black;
+    border-radius: 10px;
+    margin: 15px;
+}

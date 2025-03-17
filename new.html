@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder search = "for movies" id = "search">
+    <br><br>
+    <div id="display">
+        
+    </div>
+    <br><br><br>
+    <form onsubmit="addtransaction(event)">
+    <div> 
+        <labeL> Do you want to add amovie </labeL>
+        <p>
+            <input type="text" placeholder =" movie name you want to add" id="movie_name">
+        </p>
+        <p>
+            <input type="number" placeholder = "the profit made by the movie" id="profit_made">
+        </p>
+        <p>
+            <input type="submit" value ="click to submit"  >
+        </p>
+    </div>
+    </form>
+    <div>
+        <table id="table_movie" border="1">
+                <tr>
+                    <td> The Movie Name added</td>
+                    <td> The Profit made by the movie</td>
+                </tr>
+               
+        </table>
+    </div>
+</body>
+<script type="text/javascript">
+    const movie = [
+        { name: "avengers" , profit : "1.2B"},
+        { name: "Superman vs batman " , profit : " 500M"},
+        { name: "BlackAdam" , profit : "600M"},
+        { name: "Avatar Way of water" , profit : " 2B"}
+    ]
+
+    const input = document.getElementById("search");
+    const result = document.getElementById("display");
+
+    input.addEventListener("input" , ()=> 
+{
+
+    const query = input.value.toLowerCase().trim();
+
+    if (query === "")
+{
+    result.innerHTML = " ";
+}
+else
+{
+    const filtered = movie.filter( movie => movie.name.toLowerCase().trim().startsWith(query) );
+    result.innerHTML = filtered.map(movie => `${movie.name} : ${movie.profit}`);
+    
+}
+});
+
+function addtransaction (event)
+{
+    event.preventDefault();
+    const movie_name = document.getElementById("movie_name").value;
+    const profit_name = document.getElementById("profit_made").value;
+
+    if (!movie_name || profit_name<0)
+{
+    alert("Please enter the name of the movie you want to add and the profit made by the movie");
+    return;
+
+}
+else
+{
+    const table = document.getElementById("table_movie");
+    const row = table.insertRow();
+
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+
+    cell1.innerHTML =  movie_name;
+    cell2.innerHTML = profit_name;
+
+   
+}
+}
+</script>
+
+</html>

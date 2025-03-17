@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Filling</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div>
+        
+        <form id="form1">
+            <div class="main-div">
+                <div>
+                    <label for="cardname">
+                        <h4>FIRST FILLING FORM</h4>
+                        <hr>
+                    </label>
+                </div>
+                <div>
+                    <input type="text" id="cardname" name="cardname" placeholder="Card Name" required>
+                </div>
+                <div>
+                    <input type="number" id="account_number" name="account_number" placeholder="Account Number" required>
+                </div>
+                <div>
+                    <input type="date" id="expiry_date" name="expiry_date" required>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" onclick="submiting(event)">
+                </div>
+            </div>
+        </form>
+
+        <form id="form2">
+            <div class="main-div">
+                <div>
+                    <label>
+                        <h4>SECOND FILLING FORM</h4>
+                        <hr>
+                    </label>
+                </div>
+                <div>
+                    <input type="text" id="gender" name="gender" placeholder="Gender" required>
+                </div>
+                <div>
+                    <input type="number" id="age" name="age" placeholder="Current Age" required>
+                </div>
+                <div>
+                    <input type="date" id="dates" name="dates" required>
+                </div>
+                <div>
+                    <input type="email" id="emails" name="emails" placeholder="Email" required>
+                </div>
+                <div>
+                    <input type="text" id="addresses" name="addresses" placeholder="Physical Address" required>
+                </div>
+                <div>
+                    <button type="submit">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function submiting(event) {
+            event.preventDefault();
+
+            const cardname = document.getElementById("cardname").value.trim();
+            const account_number = document.getElementById("account_number").value.trim();
+
+            if (cardname.length < 3) {
+                alert("The card name must have more than 3 characters");
+                return;
+            }
+
+            if (account_number.length !== 12) {
+                alert("The account number must have exactly 12 characters");
+                return;
+            }
+
+            alert('The card is well filled');
+        }
+
+        document.getElementById("form2").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const gender = document.getElementById("gender").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const dates = document.getElementById("dates").value.trim();
+            const emails = document.getElementById("emails").value.trim();
+            const addresses = document.getElementById("addresses").value.trim();
+
+            if (gender === "" || age === "" || dates === "" || emails === "" || addresses === "") {
+                alert("Please fill out all fields in the second form");
+                return;
+            }
+
+            alert('The second form is well filled');
+        });
+    </script>
+</body>
+</html>

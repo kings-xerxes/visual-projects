@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+   <link rel="stylesheet" href="portfolioHome.css" />
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div id="head-contain">William</div>
+            <div id="bot-contain">
+                <div id="but-word"><a href="portfolioHome.html">Home</a></div>
+                <div id="but-word"><a href="portfolioabout.html">About</a></div>
+           
+                <div id="but-word"><a href="portfolioservice.html">Service</a></div>
+                <div id="but-word"><a href="portfoliocontact.html">Contact</a></div>
+            </div>
+            <div id="social-btn">
+                <div id="social-img"><a href="" id="img-top"><img src="twitter.png" id="img-top" /></a></div>
+                <div id="social-img"><a href="https://www.instagram.com/" id="img-top"><img src="instagram.png" id="img-top" /></a></div>
+                <div id="social-img"><a href="" id="img-top"><img src="facebook.png" id="img-top" /></a></div>
+                <div id="social-img"><a href="" id="img-top"><img src="linkedin.png" id="img-top" /></a></div>
+            </div>
+        </header>
+        <div id="special-theme">  
+            <button id="theme-toggle">Dark Theme</button> 
+        </div>
+        <main>
+            <div id="main-container">
+                <div id="my-content">
+                    <div id="img-name">
+                        <div id="name">William Chipanha</div>
+                        <div id="my-image"><img src="pexels-anna.jpg" id="my-image"></div>
+                    </div>
+                    <div id="words">
+                        Hi, I'm a Software engineer and cyber security. My passion for
+                        technology has led me to create innovative solutions for
+                        businesses.
+                    </div>
+                    <div id="doning">
+                        <label id="my-info"> My Professions</label>
+                        <ul id="custom-list">
+                            <li>Cyber security</li>
+                            <li>Software Developer</li>
+                            <li>data scientist</li>
+                            <li>Artificial intellegence</li>
+                        </ul>
+                    </div>
+                    <div id="contacts">
+                        <div>
+                            <button id="contact">
+                                <a href="portfoliocontact.html" id="cont-act">Contact</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div id="foot-contain">
+                <div id="copyright">
+                    © 2022 William All rights reserved
+                </div>
+                <div id="foot-social">
+                    <div id="foot-social-img">
+                        <img src="instagram.png" id="img-foot">
+                    </div>
+                    <div id="foot-social-img">
+                        <img src="twitter.png" id="img-foot">
+                    </div>
+                    <div id="foot-social-img">
+                        <img src="facebook.png" id="img-foot">
+                    </div>
+                    <div id="foot-social-img">
+                        <img src="linkedin.png" id="img-foot">
+                    </div>
+                </div>
+                <div id="foot-design">
+                    Designed by <label id="special-label">william</label> Distributed by <label id="special-label"> Xerxes Enterprise</label> 
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                if (body.classList.contains('dark-theme')) {
+                    themeToggle.textContent = 'Light Theme';
+                } else {
+                    themeToggle.textContent = 'Dark Theme';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

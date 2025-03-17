@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Chipanha - About</title>
+    <link rel="stylesheet" href="portfolioabout.css">
+</head>
+<body>
+    <header>
+        <div id="head-contain">William</div>
+        <div id="bot-contain">
+            <div id="but-word"><a href="portfolioHome.html">Home</a></div>
+            <div id="but-word"><a href="About.html">About</a></div>
+            <div id="but-word"><a href="portfolioservice.html">Service</a></div>
+            <div id="but-word"><a href="portfoliocontact.html">Contact</a></div>
+        </div>
+        <div id="social-btn">
+            <div id="social-img"><a href="#" id="img-top"><img src="twitter.png" id="img-top" alt="Twitter" /></a></div>
+            <div id="social-img"><a href="https://www.instagram.com/" id="img-top"><img src="instagram.png" id="img-top" alt="Instagram" /></a></div>
+            <div id="social-img"><a href="#" id="img-top"><img src="facebook.png" id="img-top" alt="Facebook" /></a></div>
+            <div id="social-img"><a href="#" id="img-top"><img src="linkedin.png" id="img-top" alt="LinkedIn" /></a></div>
+        </div>
+    </header>
+    <div id="theme-container">
+        <button id="theme-toggle">Dark Mode</button>
+    </div>
+    <div id="container">
+        <div id="personal-info">
+            <div id="head-info">
+                <h2>William Chipanha</h2>
+                <p>
+                    <span>Job Title: Software Developer</span>
+                    <span>Location: Tanzania</span>
+                    <span>Email: Xerxeswilliam8@gmail.com</span>
+                </p>
+            </div>
+            <div id="skill-info">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Javascript</li>
+                    <li>Python</li>
+                    <li>React.js</li>
+                </ul>
+            </div>
+            <div id="education-levels">
+                <h3>Education</h3>
+                <ul>
+                    <li>University of Tanzania</li>
+                    <li>Advance level From 2024 to 2026 <label>At Ahmes Secondary School</label></li>
+                    <li>O-level from 2020 to 2023 <label>At Ahmes Secondary School</label></li>
+                    <li>Primary level from 2010 to 2019 <label>At Filbert Bay and Kings School</label></li>
+                </ul>
+            </div>
+            <div id="tools-used">
+                <h3>Tools Used</h3>
+                <ul>
+                    <li>VS Code</li>
+                    <li>React.js</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Javascript</li>
+                </ul>
+            </div>
+            <div id="certificates">
+                <h3>Certificates</h3>
+                <ul>
+                    <li>Certified by Google Cloud Platform (GCP)</li>
+                    <li>Certified by AWS</li>
+                    <li>Certified by Microsoft Azure</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="foot-contain">
+            <div id="copyright">
+                © 2022 William All rights reserved
+            </div>
+            <div id="foot-social">
+                <div id="foot-social-img">
+                    <a href="https://www.instagram.com/"><img src="instagram.png" id="img-foot" alt="Instagram"></a>
+                </div>
+                <div id="foot-social-img">
+                    <a href="#"><img src="twitter.png" id="img-foot" alt="Twitter"></a>
+                </div>
+                <div id="foot-social-img">
+                    <a href="#"><img src="facebook.png" id="img-foot" alt="Facebook"></a>
+                </div>
+                <div id="foot-social-img">
+                    <a href="#"><img src="linkedin.png" id="img-foot" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div id="foot-design">
+                Designed by <label id="special-label">William</label> Distributed by <label id="special-label">Xerxes Enterprise</label>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for theme toggle -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            themeToggle.textContent = body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
+        });
+    </script>
+</body>
+</html>

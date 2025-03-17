@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Feast</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFEFE7 0%, #FFF5E1 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #00CED1, #E0FFFF);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: background 0.3s ease;
+        }
+
+        #div_head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        #div_head label {
+            font-size: 20px;
+            padding: 12px 25px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+            border-radius: 25px;
+        }
+
+        #div_head label:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #div_head a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        #div_head a:hover {
+            color: #FF6F61;
+        }
+
+        #input_search {
+            width: 300px;
+            height: 45px;
+            border-radius: 25px;
+            border: 2px solid #00CED1;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #input_search:hover, #input_search:focus {
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 206, 209, 0.5);
+            border-color: #FF6F61;
+            outline: none;
+        }
+
+        /* Main Content */
+        #div_main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        #div_main_2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        #div_main_2_one {
+            padding: 30px;
+        }
+
+        #div_main_h2 h2 {
+            font-size: 48px;
+            color: #222;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #FF6F61, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: left;
+        }
+
+        #div_main_words {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.8;
+            max-width: 550px;
+            font-style: italic;
+        }
+
+        #div_main_2_special {
+            margin-top: 40px;
+            display: flex;
+            gap: 25px;
+        }
+
+        #div_main_button, #div_main_span {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #div_main_button {
+            background: linear-gradient(135deg, #FF6F61, #FF8A65);
+            color: #fff;
+        }
+
+        #div_main_button:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #FF8A65, #FF6F61);
+            box-shadow: 0 8px 20px rgba(255, 111, 97, 0.5);
+        }
+
+        #div_main_span {
+            background: linear-gradient(135deg, #f3ec78, #af4261, #af43af);
+            color: #fff;
+        }
+
+        #div_main_span:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(175, 66, 97, 0.5);
+        }
+
+        #image_div_2_one {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, filter 0.3s ease;
+        }
+
+        #image_div_2_one:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1);
+        }
+
+        /* Food Section */
+        #food h1, #foods h1 {
+            font-size: 40px;
+            color: #FF6F61;
+            text-align: center;
+            margin: 50px 0;
+            font-family: 'Trebuchet MS', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #foods h4 {
+            font-size: 36px;
+            color: #222;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        #div_main_1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        #box_shad {
+            background: #fff;
+            width: 100%;
+            max-width: 350px;
+            height: 360px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #box_shad:hover {
+            background: linear-gradient(135deg, #00CED1, #E0FFFF);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 206, 209, 0.4);
+        }
+
+        #box_shad_img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        #box_shad:hover #box_shad_img {
+            transform: scale(1.05);
+        }
+
+        #box_shad h3 {
+            font-size: 24px;
+            color: #222;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        #box_shad p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Signature Dishes */
+        #word_one {
+            text-align: center;
+            margin: 80px 0;
+            padding: 40px;
+            background: rgba(255, 245, 225, 0.5);
+            border-radius: 20px;
+        }
+
+        #signature {
+            font-size: 32px;
+            color: #FF6F61;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        #special_label {
+            font-size: 52px;
+            color: #222;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #FF6F61, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #special {
+            font-size: 22px;
+            color: #555;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        #word_two {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+            margin: 80px 0;
+        }
+
+        #word_two_div {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #word_two_div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        #img_word_one {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #FF6F61;
+        }
+
+        #freshin {
+            font-size: 26px;
+            color: #222;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        #scripted {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Testimonials */
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 50px 20px;
+            background: rgba(255, 245, 225, 0.7);
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #E0FFFF, #fff);
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .testimonial-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #FF6F61;
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .user-handle {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(to left, #E0FFFF, #008080);
+            padding: 50px 20px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 20px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FF6F61;
+            text-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+        }
+
+        .social-icons {
+            margin: 25px 0;
+        }
+
+        .social-icons a {
+            font-size: 28px;
+            color: #fff;
+            margin: 0 20px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.3);
+            color: #FF6F61;
+        }
+
+        .copyright {
+            font-size: 16px;
+            color: #E0FFFF;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #div_main_2 {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            #div_main_2_special {
+                justify-content: center;
+            }
+
+            #image_div_2_one {
+                height: 350px;
+            }
+
+            #div_head {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            #input_search {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            #special_label {
+                font-size: 42px;
+            }
+
+            #special {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px;
+            }
+
+            #div_main_h2 h2 {
+                font-size: 32px;
+            }
+
+            #div_main_words {
+                font-size: 16px;
+            }
+
+            #box_shad {
+                height: 320px;
+            }
+
+            #food h1, #foods h1 {
+                font-size: 32px;
+            }
+
+            #foods h4 {
+                font-size: 28px;
+            }
+
+            .footer a {
+                display: block;
+                margin: 15px 0;
+            }
+        }
+        .foot-image
+        {
+            width:50px;
+            height:50px;
+        }
+        .foot-image:hover{
+            height:55px;
+            width:55px;
+            transition:1s;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_div">
+        <div id="div_head">
+            <label><a href="body.html">Home</a></label>
+            <label><a href="menu.html">Menu</a></label>
+            <label><input type="text" id="input_search" placeholder="Search..."></label>
+            <label><a href="#">Register</a></label>
+            <label><a href="login2.html">Login</a></label>
+        </div>
+       
+        <div id="div_main">
+            <div id="div_main_2">
+                <div id="div_main_2_one">
+                    <div id="div_main_h2">
+                        <h2 id="div_h2">Welcome to Fresh Feast</h2>
+                    </div>
+                    <div id="div_main_words">
+                        Dive into a world of flavors and culinary delights. Discover our exquisite menu and enjoy a dining experience like no other.
+                    </div>
+                    <div id="div_main_2_special">
+                        <button id="div_main_button">Explore Our Menu</button>
+                        <button id="div_main_span">Discover Our Story -></button>
+                    </div>
+                </div>
+                <div id="div_main_2_one">
+                    <img src="pexels-tino.jpg" id="image_div_2_one" alt="Fresh Feast Hero Image"/>
+                </div>
+            </div>
+
+            <div id="food">
+                <h1>The Food Present</h1>
+            </div>
+
+            <div id="div_main_1">
+                <div id="box_shad">
+                    <div><img src="pexels-victor.jpg" id="box_shad_img" alt="Delicious Pizza"></div>
+                    <div>
+                        <h3>Delicious Pizza</h3>
+                        <p>A cheesy, crispy delight topped with fresh ingredients.</p>
+                    </div>
+                </div>
+                <div id="box_shad">
+                    <div><img src="pexels-viktoriia.jpg" id="box_shad_img" alt="Juicy Burger"></div>
+                    <div>
+                        <h3>Juicy Burger</h3>
+                        <p>Loaded with fresh veggies, tender meat, and special sauce.</p>
+                    </div>
+                </div>
+                <div id="box_shad">
+                    <div><img src="pexels-dmitriy.jpg" id="box_shad_img" alt="Exotic Sushi"></div>
+                    <div>
+                        <h3>Exotic Sushi</h3>
+                        <p>Perfectly rolled sushi with fresh fish and delicious flavors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="word_one">
+                <div id="signature">Our Signature Dishes</div>
+                <div id="special_label">Savor The Excellence</div>
+                <div id="special">
+                    Indulge in our chef's specials, crafted with<br>
+                    passion and the finest ingredients to tantalize<br>
+                    your taste buds.
+                </div>
+            </div>
+
+            <div id="word_two">
+                <div id="word_two_div">
+                    <img src="pexels-anna.jpg" id="img_word_one" alt="Fresh Ingredients">
+                    <h3 id="freshin">Fresh Ingredients</h3>
+                    <p id="scripted">
+                        Our dishes are prepared with the freshest ingredients, ensuring a burst of flavor in every bite.
+                    </p>
+                </div>
+                <div id="word_two_div">
+                    <img src="pexels-ayse.jpg" id="img_word_one" alt="Fresh Ingredients">
+                    <h3 id="freshin">Fresh Ingredients</h3>
+                    <p id="scripted">
+                        Our dishes are prepared with the freshest ingredients, ensuring a burst of flavor in every bite.
+                    </p>
+                </div>
+                <div id="word_two_div">
+                    <img src="pexels-blanco.jpg" id="img_word_one" alt="Fresh Ingredients">
+                    <h3 id="freshin">Fresh Ingredients</h3>
+                    <p id="scripted">
+                        Our dishes are prepared with the freshest ingredients, ensuring a burst of flavor in every bite.
+                    </p>
+                </div>
+            </div>
+
+            <div id="foods">
+                <h1 id="h1foods">Delightful Feast</h1>
+                <h4>What Our Guests Say</h4>
+            </div>
+
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The ambiance and flavors at Fresh Feast are unmatched. A must-visit for food lovers!</p>
+                    <div class="testimonial-user">
+                        <img src="pexels-claudio.jpg" alt="John Doe" class="user-avatar">
+                        <div>
+                            <p class="user-name">John Doe</p>
+                            <p class="user-handle">@johndoe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Every dish is a work of art. The service is impeccable, and the atmosphere is inviting.</p>
+                    <div class="testimonial-user">
+                        <img src="pexels-dmitriy.jpg" alt="Jane Smith" class="user-avatar">
+                        <div>
+                            <p class="user-name">Jane Smith</p>
+                            <p class="user-handle">@janesmith</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">An unforgettable dining experience. The flavors are rich, and the presentation is stunning.</p>
+                    <div class="testimonial-user">
+                        <img src="pexels-kate.jpg" alt="Emily Johnson" class="user-avatar">
+                        <div>
+                            <p class="user-name">Emily Johnson</p>
+                            <p class="user-handle">@emilyjohnson</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div>
+                    <a href="#">About Us</a>
+                    <a href="#">Our Menu</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Reservations</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><img src="linkedin.png" class="foot-image"></a>
+                    <a href="#"><img src="facebook.png" class="foot-image"></a>
+                    <a href="#"><img src="instagram.png"class="foot-image"></a>
+                    <a href="#"><img src="twitter.png" class="foot-image"></a>
+                </div>
+                <div class="copyright">
+                    © Fresh Feast 2024, Savor the Moment with Us
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
